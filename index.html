@@ -42,7 +42,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li> -->
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <div class="navbar-right">
@@ -285,6 +285,69 @@
   <!-- Footer -->
   <footer class="footer clearfix">
     <div class="container">
+
+      <!-- first footer -->
+      <div class="first-footer">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="links dark footer-contact-links">
+              <div class="footer-contact-links-wrapper">
+                <div class="footer-contact-link-wrapper">
+                  <div class="image-wrapper footer-contact-link-icon">
+                    <div class="icon-footer"> <i class="flaticon-phone-call"></i> </div>
+                  </div>
+                  <div class="footer-contact-link-content">
+                    <h6>Call us</h6>
+                    <p>0722 763 048</p>
+                  </div>
+                </div>
+                <div class="footer-contact-links-divider"></div>
+                <div class="footer-contact-link-wrapper">
+                  <div class="image-wrapper footer-contact-link-icon">
+                    <div class="icon-footer"> <i class="omfi-envelope"></i> </div>
+                  </div>
+                  <div class="footer-contact-link-content">
+                    <h6>Write to us</h6>
+                    <p>info@f1garage.co.ke</p>
+                  </div>
+                </div>
+                <div class="footer-contact-links-divider"></div>
+                <div class="footer-contact-link-wrapper">
+                  <div class="image-wrapper footer-contact-link-icon">
+                    <div class="icon-footer"> <i class="omfi-location"></i> </div>
+                  </div>
+                  <div class="footer-contact-link-content">
+                    <h6>Address</h6>
+                    <p>Dunga Close, Off Dunga Road <br> P.O. Box 16797 - 00620 Mobil Plaza <br> Nairobi, Kenya</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- second footer -->
+      <div class="second-footer">
+        <div class="row">
+          <div class="col-md-5"></div>
+          <!-- about & social icons -->
+          <div class="col-md-6 widget-area">
+            <div class="widget clearfix">
+              <!-- <div class="footer-logo"><img src="assets/images/logo/logo-light.png" alt=""></div> -->
+              <div class="widget-text">
+                <!--<p>Our Socials:</p>-->
+                <div class="social-icons">
+                  <ul class="list-inline">
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- bottom footer -->
       <div class="bottom-footer-text">
         <div class="row copyright">
@@ -315,91 +378,91 @@
   <script src="assets/javascript/custom.js"></script>
 
   <!-- Vegas Background Slideshow (vegas.slider kenburns) -->
-<script>
-  $(document).ready(function() {
-    var slider = $('#kenburnsSliderContainer').vegas({
-      slides: [{
-        src: "assets/images/slider-02/01.jpg"
-      }, {
-        src: "assets/images/slider-02/02.jpg"
-      }, {
-        src: "assets/images/slider-02/03.jpg"
-      }, {
-        src: "assets/images/slider-02/04.jpg"
-      }, {
-        src: "assets/images/slider-02/05.jpg"
-      }, {
-        src: "assets/images/slider-02/06.jpg"
-      }, {
-        src: "assets/images/slider-02/07.jpg"
-      }, {
-        src: "assets/images/slider-02/08.jpg"
-      }, {
-        src: "assets/images/slider-02/09.jpg"
-      }],
-      overlay: true,
-      transition: 'fade2',
-      animation: 'kenburnsUpRight',
-      transitionDuration: 1000,
-      delay: 10000,
-      animationDuration: 20000,
-      walk: function(index, slideSettings) {
-        // Define different texts for each slide
-        var titles = [
-          "* Precision-Driven",
-          "* Flawless Finish",
-          "* Full-Spectrum Care",
-          "* Masterful Repairs",
-          "* Advanced Diagnostics",
-          "* Performance-Boosting",
-          "* Reliable Power",
-          "* Immaculate Interior",
-          "* Gleaming Perfection"
-        ];
-        var headings = [
-          "Panel Beating",
-          "Spray Painting",
-          "Vehicle Servicing",
-          "Minor and Major Repairs",
-          "Engine Diagnostics",
-          "Tire Fitting & Alignment",
-          "Battery Services",
-          "Interior Cleaning",
-          "Buffing & Polishing"
-        ];
-        var descriptions = [
-          "With our precision-driven panel beating service, we restore your vehicle’s body to perfection, eliminating dents and damage with expert skill.",
-          "Experience a flawless finish with our spray painting service, where we match custom colors to renew your vehicle’s paintwork and appearance.",
-          "Our full-spectrum vehicle servicing covers everything from engine checks to fluid replacements, ensuring top performance and longevity.",
-          "From minor fixes to major overhauls, our masterful repairs guarantee that your vehicle is roadworthy and restored to peak performance.",
-          "Leverage advanced diagnostics to quickly identify and address engine issues, restoring your vehicle’s optimal performance with precision.",
-          "We offer tire fitting and alignment services that ensure balanced tire wear, enhance fuel efficiency, and improve handling for a safer ride.",
-          "Ensure your car starts every time with our reliable battery services, from testing and replacement to installation and charging.",
-          "Transform your vehicle’s interior with our immaculate cleaning services, thoroughly removing stains and odors to leave it looking and feeling brand new.",
-          "Achieve gleaming perfection with our buffing and polishing services that remove imperfections and give your car a mirror-like shine."
-        ];
+  <script>
+    $(document).ready(function() {
+      var slider = $('#kenburnsSliderContainer').vegas({
+        slides: [{
+          src: "assets/images/slider-02/01.jpg"
+        }, {
+          src: "assets/images/slider-02/02.jpg"
+        }, {
+          src: "assets/images/slider-02/03.jpg"
+        }, {
+          src: "assets/images/slider-02/04.jpg"
+        }, {
+          src: "assets/images/slider-02/05.jpg"
+        }, {
+          src: "assets/images/slider-02/06.jpg"
+        }, {
+          src: "assets/images/slider-02/07.jpg"
+        }, {
+          src: "assets/images/slider-02/08.jpg"
+        }, {
+          src: "assets/images/slider-02/09.jpg"
+        }],
+        overlay: true,
+        transition: 'fade2',
+        animation: 'kenburnsUpRight',
+        transitionDuration: 1000,
+        delay: 10000,
+        animationDuration: 20000,
+        walk: function(index, slideSettings) {
+          // Define different texts for each slide
+          var titles = [
+            "* Precision-Driven",
+            "* Flawless Finish",
+            "* Full-Spectrum Care",
+            "* Masterful Repairs",
+            "* Advanced Diagnostics",
+            "* Performance-Boosting",
+            "* Reliable Power",
+            "* Immaculate Interior",
+            "* Gleaming Perfection"
+          ];
+          var headings = [
+            "Panel Beating",
+            "Spray Painting",
+            "Vehicle Servicing",
+            "Minor and Major Repairs",
+            "Engine Diagnostics",
+            "Tire Fitting & Alignment",
+            "Battery Services",
+            "Interior Cleaning",
+            "Buffing & Polishing"
+          ];
+          var descriptions = [
+            "With our precision-driven panel beating service, we restore your vehicle’s body to perfection, eliminating dents and damage with expert skill.",
+            "Experience a flawless finish with our spray painting service, where we match custom colors to renew your vehicle’s paintwork and appearance.",
+            "Our full-spectrum vehicle servicing covers everything from engine checks to fluid replacements, ensuring top performance and longevity.",
+            "From minor fixes to major overhauls, our masterful repairs guarantee that your vehicle is roadworthy and restored to peak performance.",
+            "Leverage advanced diagnostics to quickly identify and address engine issues, restoring your vehicle’s optimal performance with precision.",
+            "We offer tire fitting and alignment services that ensure balanced tire wear, enhance fuel efficiency, and improve handling for a safer ride.",
+            "Ensure your car starts every time with our reliable battery services, from testing and replacement to installation and charging.",
+            "Transform your vehicle’s interior with our immaculate cleaning services, thoroughly removing stains and odors to leave it looking and feeling brand new.",
+            "Achieve gleaming perfection with our buffing and polishing services that remove imperfections and give your car a mirror-like shine."
+          ];
 
-        // Update the text on each slide based on the index
-        $('#slide-title').text(titles[index]);
-        $('#slide-heading').text(headings[index]);
-        $('#slide-description').text(descriptions[index]);
-      }
+          // Update the text on each slide based on the index
+          $('#slide-title').text(titles[index]);
+          $('#slide-heading').text(headings[index]);
+          $('#slide-description').text(descriptions[index]);
+        }
+      });
+
+      // Add arrow key controls for the slider
+      $(document).keydown(function(e) {
+        if (e.keyCode === 37) { // Left arrow key
+          slider.vegas('previous');
+        }
+        if (e.keyCode === 39) { // Right arrow key
+          slider.vegas('next');
+        }
+      });
+
+      // Update year
+      document.getElementById('year').textContent = new Date().getFullYear();
     });
-
-    // Add arrow key controls for the slider
-    $(document).keydown(function(e) {
-      if (e.keyCode === 37) { // Left arrow key
-        slider.vegas('previous');
-      }
-      if (e.keyCode === 39) { // Right arrow key
-        slider.vegas('next');
-      }
-    });
-
-    // Update year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  });
-</script>
+  </script>
 
 </body>
 
