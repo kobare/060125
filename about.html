@@ -157,13 +157,16 @@
                 </div>
                 <div class="footer-contact-links-divider"></div>
                 <div class="footer-contact-link-wrapper">
+                  <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#0">
                   <div class="image-wrapper footer-contact-link-icon">
                     <div class="icon-footer"> <i class="omfi-envelope"></i> </div>
                   </div>
+                  </a>
+                  <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#0">
                   <div class="footer-contact-link-content">
                     <h6>Write to us</h6>
                     <p>info@f1garage.co.ke</p>
-                  </div>
+                  </div></a>
                 </div>
                 <div class="footer-contact-links-divider"></div>
                 <div class="footer-contact-link-wrapper">
@@ -213,6 +216,54 @@
       </div>
     </div>
   </footer>
+
+    <!-- Message Us Popup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get in touch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="booking-box">
+                        <div class="booking-inner clearfix">
+            <form xclass="contact__form" action="https://formsubmit.co/f1garage@yahoo.com" method="POST" target="_blank">
+              <!-- form message -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
+                </div>
+              </div>
+              <!-- form elements -->
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input name="name" type="text" placeholder="Your Name *" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="email" type="email" placeholder="Your Email *" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="phone" type="text" placeholder="Your Number *" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="subject" type="text" placeholder="Subject *" required>
+                </div>
+                <div class="col-md-12 form-group">
+                  <textarea name="message" id="message" cols="30" rows="4" placeholder="Message *" required></textarea>
+                </div>
+                <div class="col-md-12">
+                  <input name="submit" type="submit" value="Send Message">
+                </div>
+              </div>
+            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   <!-- jQuery -->
   <script src="assets/javascript/jquery-3.7.1.min.js"></script>
   <script src="assets/javascript/jquery-migrate-3.4.1.min.js"></script>
