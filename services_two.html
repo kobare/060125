@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>F1 Garage</title>
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="assets/css/plugins.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+<style>
+.car-item {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #999;
+}
+
+.car-image-container {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.car-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  display: block; /* Make the text visible by default */
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.car-item:hover .car-image-container {
+  opacity: 1; /* Show the image on hover */
+}
+
+.car-item:hover .car-text-container {
+  display: none; /* Hide the text when hovering */
+}
+
+@media (max-width: 768px) {
+  .car-item {
+    position: relative;
+  }
+
+  .car-image-container {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Initially hide the image on mobile */
+  }
+
+  .car-text-container {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  .car-item.active .car-image-container {
+    opacity: 1; /* Reveal the image when active on mobile */
+  }
+
+  .car-item.active .car-text-container {
+    display: none; /* Hide the text when active on mobile */
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader-bg"></div>
+  <div id="preloader">
+    <div id="preloader-status">
+      <div class="preloader-position loader"> <span></span> </div>
+    </div>
+  </div>
+  <!-- Progress scroll totop -->
+  <div class="progress-wrap cursor-pointer">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <a class="logo" href="index.html"> <img src="assets/images/logo/logo-light.png" class="logo-img" alt="F1 Garage"> </a>
+        <!-- <a class="logo" href="index.html"><h2>F1 Garage<span>x</span></h2></a> -->
+      </div>
+      <!-- Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span> </button>
+      <!-- Menu -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">More Info <i class="ti-angle-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html" class="dropdown-item"><span>About Us</span></a></li>
+              <!-- <li><a href="services.html" class="dropdown-item"><span>Services</span></a></li> -->
+              <li><a href="services_two.html" class="dropdown-item"><span>Onyx Auto Detail</span></a></li>
+              <li><a href="contact.html" class="dropdown-item"><span>Contact Us</span></a></li>              
+            </ul>
+          </li>
+        </ul>
+        <div class="navbar-right">
+          <div class="wrap">
+            <div class="icon"> <i class="flaticon-phone-call"></i> </div>
+            <div class="text">
+              <p>Need help?</p>
+              <h5><a href="tel:0722763048">0722 493 732</a></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Header Banner -->
+<section class="banner-header section-padding bg-img" data-overlay-dark="5" data-background="assets/images/onyx/01.jpg" style="height: 100vh; background-size: contain; background-position: center; background-repeat: no-repeat;">
+  <!--
+  <div class="v-middle">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h6>What We Do</h6>
+          <h1><span>Onyx</span> Auto Detail</h1>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</section>
+  <!-- divider line -->
+  <div class="line-vr-section"></div>
+<!-- Exterior Detailing Services -->
+<section class="car-types1 section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center mb-30">
+        <div class="section-subtitle">Auto Detail</div>
+        <div class="section-title"><span>Exterior</span> Detailing</div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Service 1: Ceramic Coating -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/onyx/02.jpg" class="img-fluid" alt="Ceramic Coating">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Ceramic Coating</h5>
+              <p>Professional-grade coatings that protect your vehicle’s paintwork from environmental damage. Our coatings provide long-lasting protection, ensuring your vehicle remains clean and shiny for years. We offer options for 3-year and 5-year protection, designed to keep your car’s exterior looking like new.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2: Glass Ceramic Coatings -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/onyx/03.jpg" class="img-fluid" alt="Glass Ceramic Coatings">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Glass Ceramic Coatings</h5>
+              <p>Protect your vehicle’s glass with our specialized ceramic coatings. These coatings not only prevent water spots but also provide enhanced clarity, making it easier to remove dirt and grime. Our service ensures your windows remain clean and durable, with a protective layer that lasts up to 2 years.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3: Headlight & Plastic Restoration -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/onyx/04.jpg" class="img-fluid" alt="Headlight & Plastic Restoration">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Headlight & Plastic Restoration</h5>
+              <p>Over time, headlights and plastic trim can become cloudy and faded. Our restoration service rejuvenates headlights, restoring clarity and brightness, improving both the appearance and safety of your vehicle. We also restore faded plastics, bringing back their original color and shine.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4: LED Bulb Installation -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/onyx/05.jpg" class="img-fluid" alt="LED Bulb Installation">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>LED Bulb Installation</h5>
+              <p>Upgrade your vehicle's lighting with high-performance LED bulbs. We provide installation for headlights, tail lights, and interior lighting, ensuring better visibility, improved energy efficiency, and a sleek, modern look. Our expert team handles all installations to ensure a perfect fit and optimal performance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 5: Wheels Ceramic Coatings -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/onyx/06.jpg" class="img-fluid" alt="Wheels Ceramic Coatings">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Wheels Ceramic Coatings</h5>
+              <p>Protect your wheels from brake dust, dirt, and water stains with our ceramic coating service. This protective layer enhances the durability of your wheels, making them easier to clean and maintain. With a 2-year durability, your wheels will maintain their polished look for longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- divider line -->
+  <div class="line-vr-section"></div>
+
+<!-- Services -->
+<section class="car-types1 section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center mb-30">
+        <div class="section-subtitle">Auto Detail</div>
+        <div class="section-title"><span>Interior</span> Detailing</div>
+      </div>
+    </div>
+    <div class="row">
+
+      <!-- Service 2: Full Interior Detailing -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Full Interior Detailing">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Full Interior Detailing</h5>
+              <p>We thoroughly clean every inch of your vehicle’s interior, including seats, carpets, upholstery, and mats. Our service removes dirt, stains, and odors, restoring the original look and feel of your car’s interior. We also disinfect all surfaces for a fresh finish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3: Leather Seat Cleaning -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Leather Seat Cleaning">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Leather Seat Cleaning</h5>
+              <p>We provide leather seat cleaning, removing dirt, stains, and oils. After cleaning, we apply a conditioner to keep the leather soft, prevent cracks, and maintain a fresh, luxurious look. This extends the life of your leather and ensures lasting quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4: Leather Ceramic Coating -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Leather Ceramic Coating">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Leather Ceramic Coating</h5>
+              <p>Our leather ceramic coating protects your leather seats from spills, stains, and UV damage. The hydrophobic layer repels moisture and dirt, making cleaning easier and preventing cracking and fading, keeping your leather seats looking new longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 5: Fabric Upholstery Cleaning -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Fabric Upholstery Cleaning">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Fabric Upholstery Cleaning</h5>
+              <p>We offer fabric upholstery cleaning to restore your car seats and carpets to pristine condition. Our deep cleaning service removes stains, dirt, and odors. After cleaning, your upholstery is left smelling fresh and looking brand new, like it just came from the factory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 6: Stain Removal & Spot Treatment -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Stain Removal & Spot Treatment">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Stain Removal & Spot Treatment</h5>
+              <p>Our stain removal treatment focuses on tough stains like coffee, ink, or food. Using specialized products, we carefully lift stains from upholstery and carpets, restoring your car’s interior to a clean and fresh condition, free from any visible marks or odors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 7: Odor Removal & Sanitization -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Odor Removal & Sanitization">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Odor Removal & Sanitization</h5>
+              <p>We eliminate unpleasant odors from your vehicle, such as smoke, pet smells, and food odors. Our odor removal treatment uses deep cleaning and sanitizing agents that neutralize smells at their source, leaving your car smelling fresh and hygienic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 8: Dashboard & Console Detailing -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Dashboard & Console Detailing">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Dashboard & Console Detailing</h5>
+              <p>Our dashboard and console detailing service cleans and polishes all the hard surfaces of your car’s interior. We remove dust and grime, apply UV protection, and restore the surfaces to a smooth, glossy finish, improving both appearance and durability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 9: Carpet & Floor Mat Cleaning -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Carpet & Floor Mat Cleaning">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Carpet & Floor Mat Cleaning</h5>
+              <p>We provide deep carpet and floor mat cleaning using high-powered machines. This service removes embedded dirt, stains, and odors, leaving your carpets and mats fresh, clean, and free from any trapped contaminants or bacteria, improving the air quality in your car.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 10: Window & Mirror Cleaning -->
+      <div class="col-lg-4 col-md-6 mb-30">
+        <div class="item mb-30 car-item">
+          <div class="car-image-container">
+            <img src="assets/images/cars/16.jpg" class="img-fluid" alt="Window & Mirror Cleaning">
+          </div>
+          <div class="car-text-container">
+            <div class="description">
+              <h5>Window & Mirror Cleaning</h5>
+              <p>Our window and mirror cleaning service leaves your car’s glass surfaces spotless and streak-free. We use professional-grade cleaners and tools to remove smudges, dirt, and watermarks, ensuring clear visibility and improving the overall aesthetic of your car’s interior.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer clearfix">
+    <div class="container">
+      <!-- first footer -->
+      <div class="first-footer">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="links dark footer-contact-links">
+              <div class="footer-contact-links-wrapper">
+                <div class="footer-contact-link-wrapper">
+                  <div class="image-wrapper footer-contact-link-icon">
+                    <div class="icon-footer"> <i class="flaticon-phone-call"></i> </div>
+                  </div>
+                  <div class="footer-contact-link-content">
+                    <h6>Call us</h6>
+                    <p>0722 493 732</p>
+                  </div>
+                </div>
+                <div class="footer-contact-links-divider"></div>
+                <div class="footer-contact-link-wrapper">
+                  <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#0">
+                  <div class="image-wrapper footer-contact-link-icon">
+                    <div class="icon-footer"> <i class="omfi-envelope"></i> </div>
+                  </div>
+                  </a>
+                  <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#0">
+                  <div class="footer-contact-link-content">
+                    <h6>Write to us</h6>
+                    <p>info@f1garage.co.ke</p>
+                  </div></a>
+                </div>
+                <div class="footer-contact-links-divider"></div>
+                <div class="footer-contact-link-wrapper">
+                  <div class="image-wrapper footer-contact-link-icon">
+                    <div class="icon-footer"> <i class="omfi-location"></i> </div>
+                  </div>
+                  <div class="footer-contact-link-content">
+                    <h6>Address</h6>
+                    <p>Dunga Close, Off Dunga Road <br> P.O. Box 16797 - 00620 Mobil Plaza <br> Nairobi, Kenya</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- second footer -->
+      <div class="second-footer">
+        <div class="row">
+          <div class="col-md-5"></div>
+          <!-- about & social icons -->
+          <div class="col-md-6 widget-area">
+            <div class="widget clearfix">
+              <!-- <div class="footer-logo"><img src="assets/images/logo/logo-light.png" alt=""></div> -->
+              <div class="widget-text">
+                <!--<p>Our Socials:</p>-->
+                <div class="social-icons">
+                  <ul class="list-inline">
+                    <li><a href="https://instagram.com/onyxautodetail" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://facebook.com/onyxautodetail/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- bottom footer -->
+      <div class="bottom-footer-text">
+        <div class="row copyright">
+          <div class="col-md-12">
+            <p class="mb-0">&copy;<span id="year"></span> <a href="#">F1 Garage</a>. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Message Us Popup -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get in touch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="booking-box">
+                        <div class="booking-inner clearfix">
+            <form xclass="contact__form" action="https://formsubmit.co/f1garage@yahoo.com" method="POST" target="_blank">
+              <!-- form message -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
+                </div>
+              </div>
+              <!-- form elements -->
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input name="name" type="text" placeholder="Your Name *" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="email" type="email" placeholder="Your Email *" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="phone" type="text" placeholder="Your Number *" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="subject" type="text" placeholder="Subject *" required>
+                </div>
+                <div class="col-md-12 form-group">
+                  <textarea name="message" id="message" cols="30" rows="4" placeholder="Message *" required></textarea>
+                </div>
+                <div class="col-md-12">
+                  <input name="submit" type="submit" value="Send Message">
+                </div>
+              </div>
+            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- jQuery -->
+  <script src="assets/javascript/jquery-3.7.1.min.js"></script>
+  <script src="assets/javascript/jquery-migrate-3.4.1.min.js"></script>
+  <script src="assets/javascript/modernizr-2.6.2.min.js"></script>
+  <script src="assets/javascript/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/javascript/jquery.isotope.v3.0.2.js"></script>
+  <script src="assets/javascript/popper.min.js"></script>
+  <script src="assets/javascript/bootstrap.min.js"></script>
+  <script src="assets/javascript/scrollIt.min.js"></script>
+  <script src="assets/javascript/jquery.waypoints.min.js"></script>
+  <script src="assets/javascript/owl.carousel.min.js"></script>
+  <script src="assets/javascript/jquery.stellar.min.js"></script>
+  <script src="assets/javascript/jquery.magnific-popup.js"></script>
+  <script src="assets/javascript/select2.js"></script>
+  <script src="assets/javascript/datepicker.js"></script>
+  <script src="assets/javascript/YouTubePopUp.js"></script>
+  <script src="assets/javascript/vegas.slider.min.js"></script>
+  <script src="assets/javascript/custom.js"></script>
+
+  <!-- Vegas Background Slideshow (vegas.slider kenburns) -->
+  <script>
+    $(document).ready(function() {
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const carItems = document.querySelectorAll('.car-item');
+
+  carItems.forEach(item => {
+    item.addEventListener('click', function () {
+      if (window.innerWidth <= 768) { // Check if it's mobile
+        item.classList.toggle('active');
+      }
+    });
+  });
+});
+</script>
+</body>
+
+</html>
