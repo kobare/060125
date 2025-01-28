@@ -476,29 +476,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const carItems = document.querySelectorAll('.car-item');
 
   carItems.forEach(item => {
-    item.addEventListener('click', function() {
+    // Handle click on the whole car-item (image or text)
+    item.addEventListener('click', function(event) {
       if (window.innerWidth <= 768) { // Check if it's mobile
-        item.classList.toggle('active'); // Toggle the 'active' class on click
+        // Check if the clicked area is the image container
+        const isImageClicked = event.target.closest('.car-image-container');
+        const isTextClicked = event.target.closest('.car-text-container');
+
+        // If the click is on either image or text container, toggle visibility
+        if (isImageClicked || isTextClicked) {
+          item.classList.toggle('active'); // Toggle visibility
+        }
       }
     });
-
-    // Handle click events for image container as well
-    const imageContainer = item.querySelector('.car-image-container');
-    const textContainer = item.querySelector('.car-text-container');
-    
-    if (imageContainer) {
-      imageContainer.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent event from bubbling up to the parent container
-        item.classList.toggle('active'); // Toggle the 'active' class when the image is clicked
-      });
-    }
-
-    if (textContainer) {
-      textContainer.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent event from bubbling up to the parent container
-        item.classList.toggle('active'); // Toggle the 'active' class when the text is clicked
-      });
-    }
   });
 });
 </script>
