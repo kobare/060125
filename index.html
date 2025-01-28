@@ -519,6 +519,31 @@
         }
       });
 
+// Swipe support (touch events)
+var touchStartX = 0;
+var touchEndX = 0;
+
+// Detect touch start position
+$('#kenburnsSliderContainer').on('touchstart', function(e) {
+  touchStartX = e.originalEvent.touches[0].clientX;
+});
+
+// Detect touch end position and determine swipe direction
+$('#kenburnsSliderContainer').on('touchend', function(e) {
+  touchEndX = e.originalEvent.changedTouches[0].clientX;
+  
+  // If swipe is detected (threshold of 50px for example)
+  if (touchStartX - touchEndX > 50) {
+    // Swiped left
+    slider.vegas('next');
+  }
+  if (touchEndX - touchStartX > 50) {
+    // Swiped right
+    slider.vegas('previous');
+  }
+});
+
+
       // Update year
       document.getElementById('year').textContent = new Date().getFullYear();
     });
