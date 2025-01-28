@@ -12,63 +12,49 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-/* General styles for .car-item */
 .car-item {
-    position: relative;
-    width: 100%;
-    height: 200px;  /* Adjust as needed */
-    transition: all 0.3s ease;  /* Smooth transition when toggling */
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #999;
 }
 
-/* Container for the text */
-.car-item .car-text-container {
-    display: block;  /* Show text by default */
-    padding: 10px;
-    color: #333;  /* Text color */
-    font-size: 16px;  /* Text size */
-    background-color: #fff;  /* Optional background for text */
-    z-index: 1;  /* Ensure text is on top when not toggled */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.car-image-container {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0; /* Initially hide the image */
 }
 
-/* Container for the image */
-.car-item .car-image-container {
-    display: none;  /* Hide the image by default */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;  /* Ensure image stays behind the text */
-    background-size: cover;  /* Ensures the image covers the container */
-    background-position: center;
+.car-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  display: block; /* Make text visible by default */
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
-/* Show the image when the .active class is added */
-.car-item.active .car-text-container {
-    display: none;  /* Hide text when active */
+/* On hover (for larger screens) */
+.car-item:hover .car-image-container {
+  opacity: 1; /* Show the image on hover */
 }
 
-.car-item.active .car-image-container {
-    display: block;  /* Show image when active */
+.car-item:hover .car-text-container {
+  display: none; /* Hide the text when hovering */
 }
 
-/* Optional: Add a smooth fade-in effect */
-.car-item .car-image-container,
-.car-item .car-text-container {
-    transition: opacity 0.3s ease;
-}
+@media (max-width: 768px) {
+  .car-item.active .car-image-container {
+    opacity: 1; /* Reveal the image when active on mobile */
+  }
 
-.car-item.active .car-image-container {
-    opacity: 1;  /* Image appears with opacity */
-}
-
-.car-item.active .car-text-container {
-    opacity: 0;  /* Text fades out with opacity */
+  .car-item.active .car-text-container {
+    display: none; /* Hide the text when active on mobile */
+  }
 }
   </style>
 </head>
@@ -298,7 +284,7 @@
             <div class="car-text-container">
               <div class="description">
                 <h5>Engine Detailing</h5>
-                <p>Our Engine Detailing service thoroughly cleans your engine bay, removing dirt, grease, and grime, restoring a neat and polished look. We use specialized cleaning agents that are safe for most engine components. However, please note that this service is performed at the client's risk, especially if the wiring or electrical system under the hood is old or has been tampered with. We recommend assessing the condition of your engine's electrical components before proceeding.</p>
+                <p>Our Engine Detailing service cleans your engine bay, removing dirt, grease, and grime, while restoring a polished look. We apply a protectant to plastic and vinyl parts to prevent cracking and drying out. Please note, this service is performed at the client’s risk, especially if the wiring or electrical system is old or has been tampered with. We recommend checking your engine's electrical components before proceeding. </p>
               </div>
             </div>
           </div>
@@ -486,20 +472,25 @@
   </script>
 
 <script>
-document.querySelectorAll('.car-item').forEach((item) => {
-    // Toggles between text and image
-    item.addEventListener('click', function (event) {
-        if (event.target.closest('.car-item')) {
-            item.classList.toggle('active');
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  const carItems = document.querySelectorAll('.car-item');
 
-    // Added touchstart event to ensure mobile touch event works
-    item.addEventListener('touchstart', function (event) {
-        if (event.target.closest('.car-item')) {
-            item.classList.toggle('active');
+  carItems.forEach(item => {
+    // Handle click event for mobile (screen width <= 768px)
+    item.addEventListener('click', function(event) {
+      if (window.innerWidth <= 768) { // Only on mobile devices
+        // We check if the target is the image or the text container
+        const isImageClicked = event.target.closest('.car-image-container');
+        const isTextClicked = event.target.closest('.car-text-container');
+        
+        // If the click happens anywhere inside the item, toggle the active state
+        if (isImageClicked || isTextClicked) {
+          // Toggling the active class ensures we alternate between image and text
+          item.classList.toggle('active');
         }
+      }
     });
+  });
 });
 </script>
 
