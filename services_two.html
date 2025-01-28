@@ -48,28 +48,6 @@
 }
 
 @media (max-width: 768px) {
-  .car-item {
-    position: relative;
-  }
-
-  .car-image-container {
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0; /* Initially hide the image on mobile */
-  }
-
-  .car-text-container {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    height: 100%; /* Adjust to fit the content */
-    overflow-y: auto;
-    box-sizing: border-box;
-  }
-
   .car-item.active .car-image-container {
     opacity: 1; /* Reveal the image when active on mobile */
   }
@@ -514,6 +492,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
   </script>
 
 </body>
