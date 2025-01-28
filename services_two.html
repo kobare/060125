@@ -471,7 +471,7 @@
     });
   </script>
 
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   const carItems = document.querySelectorAll('.car-item');
 
@@ -482,18 +482,26 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Ensure clicking on the image toggles the visibility as well
+    // Handle click events for image container as well
     const imageContainer = item.querySelector('.car-image-container');
+    const textContainer = item.querySelector('.car-text-container');
+    
     if (imageContainer) {
       imageContainer.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent click event from propagating to the parent
+        event.stopPropagation(); // Prevent event from bubbling up to the parent container
         item.classList.toggle('active'); // Toggle the 'active' class when the image is clicked
+      });
+    }
+
+    if (textContainer) {
+      textContainer.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent event from bubbling up to the parent container
+        item.classList.toggle('active'); // Toggle the 'active' class when the text is clicked
       });
     }
   });
 });
-
-  </script>
+</script>
 
 </body>
 
