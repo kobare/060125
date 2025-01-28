@@ -12,76 +12,72 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-    .car-item {
-      position: relative;
-      cursor: pointer;
-      border: 1px solid #999;
-    }
+.car-item {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #999;
+}
 
-    .car-image-container {
-      width: 100%;
-      display: block;
-      transition: opacity 0.3s ease-in-out;
-    }
+.car-image-container {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0; /* Initially hide the image */
+}
 
-    .car-text-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      display: block;
-      /* Make the text visible by default */
-      overflow-y: auto;
-      box-sizing: border-box;
-    }
+.car-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  display: block; /* Make text visible by default */
+  overflow-y: auto;
+  box-sizing: border-box;
+}
 
-    .car-item:hover .car-image-container {
-      opacity: 1;
-      /* Show the image on hover */
-    }
+/* On hover (for larger screens) */
+.car-item:hover .car-image-container {
+  opacity: 1; /* Show the image on hover */
+}
 
-    .car-item:hover .car-text-container {
-      display: none;
-      /* Hide the text when hovering */
-    }
+.car-item:hover .car-text-container {
+  display: none; /* Hide the text when hovering */
+}
 
-    @media (max-width: 768px) {
-      .car-item {
-        position: relative;
-      }
+@media (max-width: 768px) {
+  .car-item {
+    position: relative;
+  }
 
-      .car-image-container {
-        transition: opacity 0.3s ease-in-out;
-        opacity: 0;
-        /* Initially hide the image on mobile */
-      }
+  .car-image-container {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Initially hide the image on mobile */
+  }
 
-      .car-text-container {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        height: 200px;
-        overflow-y: auto;
-        box-sizing: border-box;
-      }
+  .car-text-container {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    height: 100%; /* Adjust to fit the content */
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
 
-      .car-item.active .car-image-container {
-        opacity: 1;
-        /* Reveal the image when active on mobile */
-      }
+  .car-item.active .car-image-container {
+    opacity: 1; /* Reveal the image when active on mobile */
+  }
 
-      .car-item.active .car-text-container {
-        display: none;
-        /* Hide the text when active on mobile */
-      }
-    }
+  .car-item.active .car-text-container {
+    display: none; /* Hide the text when active on mobile */
+  }
+}
   </style>
 </head>
 
@@ -498,17 +494,17 @@
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const carItems = document.querySelectorAll('.car-item');
+document.addEventListener('DOMContentLoaded', function() {
+  const carItems = document.querySelectorAll('.car-item');
 
-      carItems.forEach(item => {
-        item.addEventListener('click', function() {
-          if (window.innerWidth <= 768) { // Check if it's mobile
-            item.classList.toggle('active');
-          }
-        });
-      });
+  carItems.forEach(item => {
+    item.addEventListener('click', function() {
+      if (window.innerWidth <= 768) { // Check if it's mobile
+        item.classList.toggle('active'); // Toggle the 'active' class on click
+      }
     });
+  });
+});
   </script>
 
 </body>
