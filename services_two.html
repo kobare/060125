@@ -386,7 +386,7 @@
           <div class="booking-box">
             <div class="booking-inner clearfix">
               <!-- Video player -->
-              <video class="img-fluid" controls>
+              <video id="videoPlayer" class="img-fluid" controls>
                 <source src="assets/videos/01.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -481,7 +481,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (window.innerWidth <= 768) { // Only on mobile devices
         // We check if the target is the image or the text container
         const isImageClicked = event.target.closest('.car-image-container');
-        const isTextClicked = event.target.closest('.car-text-container');
+        const isTextClicked = event.tar  // Event listener for when the modal is closed
+  var myModal = document.getElementById('vid_01');
+  myModal.addEventListener('hidden.bs.modal', function () {
+    var video = document.getElementById('videoPlayer');
+    video.pause(); // Pause the video when the modal is closed
+    video.currentTime = 0; // Optional: Reset the video to the start
+  });get.closest('.car-text-container');
         
         // If the click happens anywhere inside the item, toggle the active state
         if (isImageClicked || isTextClicked) {
@@ -490,6 +496,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+  });
+
+
+  // Event listener for when the modal is closed
+  var myModal = document.getElementById('vid_01');
+  myModal.addEventListener('hidden.bs.modal', function () {
+    var video = document.getElementById('videoPlayer');
+    video.pause(); // Pause the video when the modal is closed
+    video.currentTime = 0; // Optional: Reset the video to the start
   });
 });
 </script>
